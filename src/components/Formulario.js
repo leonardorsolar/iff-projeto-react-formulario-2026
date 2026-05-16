@@ -7,9 +7,10 @@ function Formulario() {
     e.preventDefault();
     localStorage.setItem("nome", nome);
     try {
-      await axios.post("http://localhost:3000/usuarios", {
-        nome: nome
-      });
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/usuarios`,
+        { nome }
+      );
       alert("Enviado com sucesso");
       setNome("");
     } catch (erro) {
